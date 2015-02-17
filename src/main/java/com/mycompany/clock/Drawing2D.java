@@ -37,6 +37,10 @@ public class Drawing2D {
 		}
 	}
 	
+	/*
+	 * (non-Javadoc)
+	 * @see java.lang.Object#toString()
+	 */
 	public String toString(){
 		String temp;
 		String shapes2D = "";

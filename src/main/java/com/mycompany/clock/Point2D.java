@@ -5,13 +5,18 @@ package com.mycompany.clock;
  */
 
 /**
- * @author Admin
+ * @author Colin
  *
  */
 public class Point2D extends Matrix{
 	
 	
-	
+	/**
+	 * Constructor
+	 * 
+	 * @param x
+	 * @param y
+	 */
 	public Point2D(float x, float y){
 		super(3,1,1);
 		matrix[0][0] = x;
@@ -26,13 +31,5 @@ public class Point2D extends Matrix{
 		return getElement(1,0);
 	}
 	
-	/*
-	 * 
-	 */
-	public void localRotation(){
-		
-	}
 	
-	
-	
-}//end of Point2D
+}

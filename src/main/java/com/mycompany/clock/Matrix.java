@@ -15,7 +15,10 @@ public class Matrix {
 	public float[][] matrix;
 	
 	/**
-	 * Constructor... no.1
+	 * 
+	 * @param rows
+	 * @param columns
+	 * @param value
 	 */
 	public Matrix(int rows, int columns, float value){
 		this.rows = rows;
@@ -30,7 +33,8 @@ public class Matrix {
 	}
 	
 	/**
-	 * Constructor.. no.2
+	 * 
+	 * @param data
 	 */
 	public Matrix(float[][] data){
 		rows = data.length;

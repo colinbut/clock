@@ -16,7 +16,13 @@ public class Circle2D {
 	private int offset;
 	
 	/**
-	 * Constructor...
+	 * Constructor
+	 * 
+	 * @param x
+	 * @param y
+	 * @param width
+	 * @param height
+	 * @param offset
 	 */
 	public Circle2D(float x, float y, int width, int height, int offset){
 		point = new Point2D(x,y);
