@@ -1,8 +1,5 @@
 package com.mycompany.clock;
 
-/**
- * 
- */
 import java.awt.*;
 import java.util.*;
 /**

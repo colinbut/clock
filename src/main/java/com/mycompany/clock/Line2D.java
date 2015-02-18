@@ -5,7 +5,7 @@ package com.mycompany.clock;
  */
 import java.awt.*;
 /**
- * @author Admin
+ * @author colin
  *
  */
 public class Line2D {
@@ -13,19 +13,37 @@ public class Line2D {
 	private Point2D src;
 	private Point2D dest;
 	
+	/**
+	 * 
+	 * @param x1
+	 * @param x2
+	 * @param y1
+	 * @param y2
+	 */
 	public Line2D(float x1, float x2, float y1, float y2){
 		src = new Point2D(x1, x2);
 		dest = new Point2D(y1, y2);
 	}
 	
+	/**
+	 * 
+	 * @return
+	 */
 	public Point2D getSrc(){
 		return src;
 	}
 	
+	/**
+	 * 
+	 * @return
+	 */
 	public Point2D getDest(){
 		return dest;
 	}
 	
+	/**
+	 * 
+	 */
 	public void printLine(){
 		System.out.println("(" + src.getX() + "," + src.getY() + ")\n" +
 				"(" + dest.getX() + "," + dest.getY() + ")");

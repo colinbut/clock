@@ -3,22 +3,26 @@ package com.mycompany.clock;
 /**
  * 
  */
-import java.util.*;
+
+import java.util.ArrayList;
+import java.util.List;
 import java.awt.*;
+
 /**
- * @author Admin
+ * @author colin
  *
  */
 public class Shape2D {
+	
 	//Lists of shapes
-	private ArrayList<Line2D> lines;
-	private ArrayList<Circle2D> circles;
-	private ArrayList<Bezier2D> curves;
+	private List<Line2D> lines;
+	private List<Circle2D> circles;
+	private List<Bezier2D> curves;
 	private Color color;
 	private Point2D localOrigin;
 	
 	/**
-	 * Constructor..
+	 * Constructor
 	 * 
 	 * @param x
 	 * @param y
@@ -35,7 +39,7 @@ public class Shape2D {
 	 * 
 	 * @return
 	 */
-	public ArrayList<Line2D> getLineList(){
+	public List<Line2D> getLineList(){
 		return lines;
 	}
 		
@@ -49,7 +53,8 @@ public class Shape2D {
 	
 	/**
 	 * Adds 4 floating point values that would be used to construct
-	 * a line. A line object is then instantiated. 
+	 * a line. A line object is then instantiated
+	 * 
 	 * @param x1
 	 * @param x2
 	 * @param y1
@@ -62,6 +67,7 @@ public class Shape2D {
 	
 	/**
 	 * Adds a circle to the shapes
+	 * 
 	 * @param x
 	 * @param y
 	 * @param width
@@ -73,7 +79,10 @@ public class Shape2D {
 		circles.add(circle);
 	}
 	
-	
+	/**
+	 * 
+	 * @param curve
+	 */
 	public void addCurve(Bezier2D curve){
 		curves.add(curve);
 	}
@@ -109,6 +118,10 @@ public class Shape2D {
 		color = c;
 	}
 	
+	/**
+	 * 
+	 * @param trans
+	 */
 	public void transform(Transformation trans){
 		for(Line2D line : lines){
 			line.transform(trans);
@@ -124,13 +137,18 @@ public class Shape2D {
 		localOrigin.transform(trans);
 	}
 	
-	/*
+	/**
 	 * 
+	 * @return
 	 */
 	public float x(){
 		return localOrigin.getX();
 	}
 	
+	/**
+	 * 
+	 * @return
+	 */
 	public float y(){
 		return localOrigin.getY();
 	}

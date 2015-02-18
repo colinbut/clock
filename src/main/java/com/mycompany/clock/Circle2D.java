@@ -5,7 +5,7 @@ package com.mycompany.clock;
  */
 import java.awt.*;
 /**
- * @author Colin
+ * @author colin
  *
  */
 public class Circle2D {
@@ -38,8 +38,7 @@ public class Circle2D {
 	}
 	
 	public void transform(Transformation trans){
-		point.transform(trans);
-		
+		point.transform(trans);	
 	}
 
 }

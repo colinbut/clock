@@ -1,7 +1,7 @@
 package com.mycompany.clock;
 
 /**
- * @author Colin
+ * @author colin
  *
  */
 public class GMain {

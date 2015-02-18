@@ -11,7 +11,7 @@ import javax.swing.*;
  * @author Colin
  *
  */
-public class GController extends JFrame implements Runnable{
+public class GController extends JFrame{
 	
 	private static final long serialVersionUID = 4931306666298591588L;
 	private GView canvas;
@@ -24,13 +24,13 @@ public class GController extends JFrame implements Runnable{
 	Shape2D minutes = new Shape2D(250, 250);
 	
 	//Fields used for the animation stuff
-	private long beforeTrans, afterTrans, beforeRender, afterRender;
-	private long desiredFrameRate, transTime, renderTime, period;
-	private long sleepTime, transformAndRenderTime;
+//	private long beforeTrans, afterTrans, beforeRender, afterRender;
+//	private long desiredFrameRate, transTime, renderTime, period;
+//	private long sleepTime, transformAndRenderTime;
 	
 	//Fields for Thread
 	private Thread thr;
-	private boolean stop = true;
+//	private boolean stop = true;
 	
 	//Extras - testing
 	private int secs = 0;
@@ -333,8 +333,8 @@ public class GController extends JFrame implements Runnable{
 	 */
 	public void startAnim(){
 		System.out.println("Starting");
-		stop = false;
-		thr = new Thread(this);
+		//stop = false;
+		thr = new Thread(new Animation(this));
 		thr.start(); //starts the thread
 		//and automatically calls run()
 		canvas.startAnim();
@@ -343,12 +343,12 @@ public class GController extends JFrame implements Runnable{
 	/*
 	 * Stops the total animation
 	 */
-	public void stopAnim(){
-		System.out.println("Stopping");
-		stop = true;
-		thr.stop();//stops this thread
-		canvas.stopAnim();
-	}
+//	public void stopAnim(){
+//		System.out.println("Stopping");
+//		stop = true;
+//		thr.stop();//stops this thread
+//		canvas.stopAnim();
+//	}
 	
 	/*
 	 * (non-Javadoc)
@@ -357,52 +357,52 @@ public class GController extends JFrame implements Runnable{
 	 */
 	public void run(){
 		    
-		desiredFrameRate = 1;//In frames per second
-		period = ((long) 1000.0)/desiredFrameRate;
-		
-		while(!stop){ //the animation loop
-			
-			beforeTrans = System.nanoTime();
-			
-			secs++;		
-			seconds.transform(localRotation(6));
-			if(secs == 60){
-				secs = 0;
-				mins++;
-				minutes.transform(localRotation(6));
-			}
-			
-			if(mins == 2){
-				//increment hr
-				mins = 0;
-				hours.transform(localRotation(1));
-			}
-			
-					
-			afterTrans = System.nanoTime();
-			
-			transTime = afterTrans - beforeTrans;
-			
-			beforeRender = System.nanoTime();
-			//canvas.render();
-			afterRender = System.nanoTime();
-			renderTime = afterRender - beforeRender;
-			
-			transformAndRenderTime = transTime/ 100000 + renderTime/ 100000;
-			sleepTime = period - (transformAndRenderTime);
-			
-			if(sleepTime <= 0){
-				sleepTime = 5;
-			}
-			
-			try{
-			   Thread.sleep(sleepTime);
-			}
-			catch(Exception e){
-				e.printStackTrace();
-			}
-
-		}
+//		desiredFrameRate = 1;//In frames per second
+//		period = ((long) 1000.0)/desiredFrameRate;
+//		
+//		while(!stop){ //the animation loop
+//			
+//			beforeTrans = System.nanoTime();
+//			
+//			secs++;		
+//			seconds.transform(localRotation(6));
+//			if(secs == 60){
+//				secs = 0;
+//				mins++;
+//				minutes.transform(localRotation(6));
+//			}
+//			
+//			if(mins == 2){
+//				//increment hr
+//				mins = 0;
+//				hours.transform(localRotation(1));
+//			}
+//			
+//					
+//			afterTrans = System.nanoTime();
+//			
+//			transTime = afterTrans - beforeTrans;
+//			
+//			beforeRender = System.nanoTime();
+//			//canvas.render();
+//			afterRender = System.nanoTime();
+//			renderTime = afterRender - beforeRender;
+//			
+//			transformAndRenderTime = transTime/ 100000 + renderTime/ 100000;
+//			sleepTime = period - (transformAndRenderTime);
+//			
+//			if(sleepTime <= 0){
+//				sleepTime = 5;
+//			}
+//			
+//			try{
+//			   Thread.sleep(sleepTime);
+//			}
+//			catch(Exception e){
+//				e.printStackTrace();
+//			}
+//
+//		}
 	}
 	
 }

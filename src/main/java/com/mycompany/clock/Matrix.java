@@ -5,7 +5,7 @@ package com.mycompany.clock;
  */
 
 /**
- * @author cbut
+ * @author colin
  *
  */
 public class Matrix {
@@ -15,6 +15,7 @@ public class Matrix {
 	public float[][] matrix;
 	
 	/**
+	 * Constructor
 	 * 
 	 * @param rows
 	 * @param columns
@@ -33,6 +34,7 @@ public class Matrix {
 	}
 	
 	/**
+	 * Constructor
 	 * 
 	 * @param data
 	 */
@@ -47,22 +49,47 @@ public class Matrix {
 		matrix = data;
 	}
 	
+	/**
+	 * 
+	 * @return
+	 */
 	public int getRows(){
 		return rows;
 	}
 	
+	/**
+	 * 
+	 * @return
+	 */
 	public int getColumns(){
 		return columns;
 	}
 	
+	/**
+	 * 
+	 * @param i
+	 * @param j
+	 * @return
+	 */
 	public float getElement(int i, int j){
 		return (matrix[i][j]);
 	}
 	
+	/**
+	 * 
+	 * @param i
+	 * @param j
+	 * @param value
+	 */
 	public void setElement(int i, int j, float value){
 		matrix[i][j] = value;
 	}
 	
+	/**
+	 * 
+	 * @param b
+	 * @return
+	 */
 	public Matrix mult(Matrix b){
 		float sum = 0;
 		int i,j,k;
@@ -84,6 +111,10 @@ public class Matrix {
 		return result;
 	}
 	
+	/**
+	 * 
+	 * @param b
+	 */
 	public void transform(Matrix b){
 		float sum = 0;
 		int i,j,k;

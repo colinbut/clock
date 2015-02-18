@@ -23,10 +23,18 @@ public class Point2D extends Matrix{
 		matrix[1][0] = y;
 	}
 	
+	/**
+	 * 
+	 * @return
+	 */
 	public float getX(){
 		return getElement(0,0);
 	}
 	
+	/**
+	 * 
+	 * @return
+	 */
 	public float getY(){
 		return getElement(1,0);
 	}

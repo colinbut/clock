@@ -4,22 +4,25 @@ import java.awt.*;
 
 import javax.swing.*;
 /**
- * @author Colin
+ * @author colin
  *
  */
 public class GView extends JPanel implements Runnable{
 	
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 7846676666316763109L;
 	private Drawing2D myDrawing;
 	//Uses for Double Buffering + later Threads
 	private Image offScreenBuffer = null;
 	private Graphics offScreenGraphics;
 	private Dimension d, oldD;
-	//Use for Multi-Threading
 	private Thread thr;
 	private boolean stop = false;
 		
 	/**
-	 * Constructor..
+	 * Constructor
 	 */
 	public GView(){
 		myDrawing = new Drawing2D();
@@ -27,7 +30,7 @@ public class GView extends JPanel implements Runnable{
 		thr = new Thread(this);
 	}
 	
-	/*
+	/**
 	 * Sets the Drawing to this View
 	 * @param drawing The Drawing to be set
 	 */
@@ -61,7 +64,7 @@ public class GView extends JPanel implements Runnable{
 	}
 	
 	/**
-	 * Renders the Animation...   ?
+	 * Renders the Animation
 	 */
 	public void render(){
 		//Get the graphics object 1st

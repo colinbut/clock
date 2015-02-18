@@ -3,15 +3,17 @@ package com.mycompany.clock;
 /**
  * 
  */
-import java.util.*;
+
+import java.util.ArrayList;
+import java.util.List;
 import java.awt.*;
 /**
- * @author Colin
+ * @author colin
  *
  */
 public class Drawing2D {
 	
-	private ArrayList<Shape2D> shapes;
+	private List<Shape2D> shapes;
 	
 	public Drawing2D(){
 		shapes = new ArrayList<Shape2D>();
