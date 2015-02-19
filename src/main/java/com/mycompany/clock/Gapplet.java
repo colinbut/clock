@@ -21,7 +21,7 @@ import javax.swing.*;
  */
 public class Gapplet extends JApplet implements Runnable{
 	
-	private GView canvas;
+	private ClockViewPanel canvas;
 	private Drawing2D drawing;
 	private TimeZone clockTimeZone; 
 	private Calendar c;
@@ -62,7 +62,7 @@ public class Gapplet extends JApplet implements Runnable{
 	 * Constructor..
 	 */
 	public void init(){
-		canvas = new GView();
+		canvas = new ClockViewPanel();
 		drawing = new Drawing2D();
 		clockTimeZone = TimeZone.getDefault();//get the timezone
 		c = Calendar.getInstance(clockTimeZone);

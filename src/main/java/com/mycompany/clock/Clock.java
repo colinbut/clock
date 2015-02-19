@@ -4,7 +4,7 @@ package com.mycompany.clock;
  * @author colin
  *
  */
-public class GMain {
+public class Clock {
 	
 	/**
 	 * Main application
@@ -13,7 +13,7 @@ public class GMain {
 	 */
 	public static void main(String[] args) {
 		
-		GController start = new GController();
+		ClockView start = new ClockView();
 		start.startAnim();//Starts the animation
 	}
 

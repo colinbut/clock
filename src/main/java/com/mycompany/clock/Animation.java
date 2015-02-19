@@ -19,9 +19,9 @@ public class Animation implements Runnable{
 	private int mins = 0;
 	private int hrs = 0;
 	
-	GController gc = null;
+	ClockView gc = null;
 	
-	public Animation(GController gc){
+	public Animation(ClockView gc){
 		this.gc = gc;
 	}
 	

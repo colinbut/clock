@@ -7,11 +7,8 @@ import javax.swing.*;
  * @author colin
  *
  */
-public class GView extends JPanel implements Runnable{
+public class ClockViewPanel extends JPanel implements Runnable{
 	
-	/**
-	 * 
-	 */
 	private static final long serialVersionUID = 7846676666316763109L;
 	private Drawing2D myDrawing;
 	//Uses for Double Buffering + later Threads
@@ -24,7 +21,7 @@ public class GView extends JPanel implements Runnable{
 	/**
 	 * Constructor
 	 */
-	public GView(){
+	public ClockViewPanel(){
 		myDrawing = new Drawing2D();
 		setBackground(Color.BLACK);
 		thr = new Thread(this);
@@ -32,6 +29,7 @@ public class GView extends JPanel implements Runnable{
 	
 	/**
 	 * Sets the Drawing to this View
+	 * 
 	 * @param drawing The Drawing to be set
 	 */
 	public void setDrawing(Drawing2D drawing){
@@ -64,7 +62,11 @@ public class GView extends JPanel implements Runnable{
 	}
 	
 	/**
-	 * Renders the Animation
+	 * ScreenRefresher
+	 * 
+	 * Renders the screen for animation.
+	 * Animation causes redraw so need to refresh the initial background 
+	 * scene
 	 */
 	public void render(){
 		//Get the graphics object 1st
@@ -82,7 +84,7 @@ public class GView extends JPanel implements Runnable{
 			offScreenGraphics.setColor(Color.BLACK);
 			offScreenGraphics.fillRect(0, 0, d.width, d.height);
 			offScreenGraphics.setColor(Color.WHITE);
-			myDrawing.draw(offScreenGraphics);
+			//myDrawing.draw(offScreenGraphics);
 			
 			try{
 				if((g != null)){

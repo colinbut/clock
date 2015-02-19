@@ -8,13 +8,13 @@ import javax.swing.*;
 
 
 /**
- * @author Colin
+ * @author colin
  *
  */
-public class GController extends JFrame{
+public class ClockView extends JFrame{
 	
 	private static final long serialVersionUID = 4931306666298591588L;
-	private GView canvas;
+	private ClockViewPanel canvas;
 	private Drawing2D drawing;
 	private TimeZone clockTimeZone; 
 	private Calendar c;
@@ -22,13 +22,7 @@ public class GController extends JFrame{
 	Shape2D seconds = new Shape2D(250, 250);
 	Shape2D hours = new Shape2D(250, 250);
 	Shape2D minutes = new Shape2D(250, 250);
-	
-	//Fields used for the animation stuff
-//	private long beforeTrans, afterTrans, beforeRender, afterRender;
-//	private long desiredFrameRate, transTime, renderTime, period;
-//	private long sleepTime, transformAndRenderTime;
-	
-	//Fields for Thread
+
 	private Thread thr;
 //	private boolean stop = true;
 	
@@ -49,21 +43,29 @@ public class GController extends JFrame{
 	private double ry = 400;
 	private double sx = 400;
 	private double sy = 400;
+	
+	ClockController controller = null;
 
 	
 	/**
-	 * Constructor..
+	 * Constructor
 	 */
-	public GController(){
+	public ClockView(){
+		
+		controller = new ClockController(this);
+		
 		setTitle("Clock");
 		setLocation(250, 200);
 		setPreferredSize(new Dimension(500,460));
 			
-		canvas = new GView();
+		canvas = new ClockViewPanel();
 		drawing = new Drawing2D();
 		clockTimeZone = TimeZone.getDefault();//get the timezone
 		c = Calendar.getInstance(clockTimeZone);
 		initComponents();
+		
+		addKeyListener(controller);	
+		addWindowListener(controller);
 	}
 	
 	/*
@@ -85,39 +87,7 @@ public class GController extends JFrame{
 		
 		setVisible(true);
 		
-		addKeyListener (new KeyListener()  {
-			public void keyPressed(KeyEvent evt) {
-			    int keyCode = evt.getKeyCode();
-			    switch (keyCode) {
-			    case 37:
-			    	seconds.transform(localRotation(6));
-			    	break;
-			    case 38 : // up cursor key 
-			    	hours.transform(localRotation(6));
-			    	break;
-			    case 39:
-			    	minutes.transform(localRotation(6));
-			       
-			          break;
-			    case 40 : // down cursor key
-			    	
-			    }
-			}
-			
-			public void keyTyped(KeyEvent evt){
-				
-			}
-			
-			public void keyReleased(KeyEvent evt){
-				
-			}
-		});
-						
-		addWindowListener(new WindowAdapter(){
-			public void windowClosing(WindowEvent e){
-				System.exit(0);
-			}
-		});
+		
 	}
 	
 	/*
@@ -283,7 +253,7 @@ public class GController extends JFrame{
 	/*
 	 * Performs the localRotation..
 	 */
-	public Transformation localRotation(int degrees){
+	 Transformation localRotation(int degrees){
 		float dx = localX;
 		float dy = localY;
 		Transformation transform1 = new Transformation();
@@ -349,60 +319,6 @@ public class GController extends JFrame{
 //		thr.stop();//stops this thread
 //		canvas.stopAnim();
 //	}
-	
-	/*
-	 * (non-Javadoc)
-	 * @see java.lang.Runnable#run()
-	 * The animation loop
-	 */
-	public void run(){
-		    
-//		desiredFrameRate = 1;//In frames per second
-//		period = ((long) 1000.0)/desiredFrameRate;
-//		
-//		while(!stop){ //the animation loop
-//			
-//			beforeTrans = System.nanoTime();
-//			
-//			secs++;		
-//			seconds.transform(localRotation(6));
-//			if(secs == 60){
-//				secs = 0;
-//				mins++;
-//				minutes.transform(localRotation(6));
-//			}
-//			
-//			if(mins == 2){
-//				//increment hr
-//				mins = 0;
-//				hours.transform(localRotation(1));
-//			}
-//			
-//					
-//			afterTrans = System.nanoTime();
-//			
-//			transTime = afterTrans - beforeTrans;
-//			
-//			beforeRender = System.nanoTime();
-//			//canvas.render();
-//			afterRender = System.nanoTime();
-//			renderTime = afterRender - beforeRender;
-//			
-//			transformAndRenderTime = transTime/ 100000 + renderTime/ 100000;
-//			sleepTime = period - (transformAndRenderTime);
-//			
-//			if(sleepTime <= 0){
-//				sleepTime = 5;
-//			}
-//			
-//			try{
-//			   Thread.sleep(sleepTime);
-//			}
-//			catch(Exception e){
-//				e.printStackTrace();
-//			}
-//
-//		}
-	}
+
 	
 }

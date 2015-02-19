@@ -3,7 +3,7 @@ package com.mycompany.clock;
 import java.awt.*;
 import java.util.*;
 /**
- * @author Colin
+ * @author colin
  *
  */
 public class Bezier2D {
@@ -14,8 +14,8 @@ public class Bezier2D {
 	private float interval;
 	private BasicStroke b;
 	
-	/*
-	 * Constructor..
+	/**
+	 * Constructor
 	 */
 	public Bezier2D(){
 		points = new Vector<Point2D>();
