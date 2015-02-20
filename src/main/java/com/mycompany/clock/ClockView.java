@@ -1,7 +1,6 @@
 package com.mycompany.clock;
 
 import java.awt.*;
-import java.awt.event.*;
 import java.util.Calendar;
 import java.util.TimeZone;
 import javax.swing.*;
@@ -24,12 +23,9 @@ public class ClockView extends JFrame{
 	Shape2D minutes = new Shape2D(250, 250);
 
 	private Thread thr;
-//	private boolean stop = true;
 	
-	//Extras - testing
 	private int secs = 0;
-	private int mins = 0;
-	private int hrs = 0;
+
 	
 	private float localX;
 	private float localY;
@@ -68,7 +64,7 @@ public class ClockView extends JFrame{
 		addWindowListener(controller);
 	}
 	
-	/*
+	/**
 	 * Makes the initial stuff
 	 */
 	public void initComponents(){
@@ -87,11 +83,10 @@ public class ClockView extends JFrame{
 		
 		setVisible(true);
 		
-		
 	}
 	
-	/*
-	 * The numbers of the Numerals..
+	/**
+	 * The numbers of the Numerals
 	 */
 	public void drawClockFigures(){
 		//12
@@ -126,7 +121,7 @@ public class ClockView extends JFrame{
 		
 	}
 	
-	/*
+	/**
 	 * The outline + the Square Swirl thats inside it
 	 */
 	public void drawClockBase(){
@@ -171,7 +166,7 @@ public class ClockView extends JFrame{
 		
 	}
 	
-	/*
+	/**
 	 * Draws the clock hands
 	 * - Hour, Minute & Seconds
 	 */
@@ -206,6 +201,9 @@ public class ClockView extends JFrame{
 		s.addLine(240, 130, 250, 110);
 	}
 	
+	/*
+	 * 
+	 */
 	private void calculateTime(){
 		
 		double minute = c.get(Calendar.MINUTE); //get min
@@ -222,7 +220,7 @@ public class ClockView extends JFrame{
 		Tick(h, hours);
 	}
 	
-	/**
+	/*
 	 * 
 	 * @return curve
 	 */
@@ -238,6 +236,9 @@ public class ClockView extends JFrame{
 		return curve;
 	}
 	
+	/*
+	 * 
+	 */
 	private Bezier2D makeHourCurves(){
 		Bezier2D curve = new Bezier2D();
 		curve.addPoint(250, 250);
@@ -250,8 +251,8 @@ public class ClockView extends JFrame{
 		return curve;
 	}
 		
-	/*
-	 * Performs the localRotation..
+	/**
+	 * Performs the localRotation
 	 */
 	 Transformation localRotation(int degrees){
 		float dx = localX;
@@ -273,7 +274,7 @@ public class ClockView extends JFrame{
 		return transform1;
 	}
 	
-	/*
+	/**
 	 * 
 	 */
 	public void Tick(double d, Shape2D s){
@@ -298,8 +299,8 @@ public class ClockView extends JFrame{
 		s.transform(transform1);
 	}
 	
-	/*
-	 * Starts the Thread of this class
+	/**
+	 * Starts the animation
 	 */
 	public void startAnim(){
 		System.out.println("Starting");
@@ -310,15 +311,17 @@ public class ClockView extends JFrame{
 		canvas.startAnim();
 	}
 	
-	/*
+	/**
 	 * Stops the total animation
+	 * 
+	 * This method is not used in this application
 	 */
-//	public void stopAnim(){
-//		System.out.println("Stopping");
-//		stop = true;
-//		thr.stop();//stops this thread
-//		canvas.stopAnim();
-//	}
+	@Deprecated
+	public void stopAnim(){
+		System.out.println("Stopping");
+		thr.stop();//stops this thread
+		canvas.stopAnim();
+	}
 
 	
 }

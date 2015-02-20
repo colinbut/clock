@@ -17,7 +17,7 @@ public class Animation implements Runnable{
 	
 	private int secs = 0;
 	private int mins = 0;
-	private int hrs = 0;
+	//private int hrs = 0;
 	
 	ClockView gc = null;
 	

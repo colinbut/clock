@@ -25,14 +25,19 @@ public class Bezier2D {
 		b = new BasicStroke(3);
 	}
 	
-	/*
-	 * Add a point to the curve?
+	/**
+	 * Add a point to the curve
 	 */
 	public void addPoint(float x, float y){
 		points.add(new Point2D(x, y));
 		numberOfPoints++;
 	}
 	
+	/**
+	 * 
+	 * @param x
+	 * @return
+	 */
 	public int fact(int x){
 		if(x == 0){
 			return 1;
@@ -42,11 +47,23 @@ public class Bezier2D {
 		}
 	}
 	
+	/**
+	 * 
+	 * @param n
+	 * @param i
+	 * @return
+	 */
 	public int choice(int n, int i){
 		return (fact(n)/ ((fact(i) * fact(n - i))));
-		
 	}
 	
+	/**
+	 * 
+	 * @param i
+	 * @param n
+	 * @param t
+	 * @return
+	 */
 	public float bezier(int i, int n, float t){
 		float bint = choice(n, i) * (float)Math.pow(t, i) *
 		                (float)Math.pow((1 - t), n - i);
