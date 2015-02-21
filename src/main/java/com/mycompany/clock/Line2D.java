@@ -8,10 +8,10 @@ import java.awt.*;
  * @author colin
  *
  */
-public class Line2D {
+public class Line2D extends Shape2D{
 	
-	private Point2D src;
-	private Point2D dest;
+	private Point src;
+	private Point dest;
 	
 	/**
 	 * 
@@ -21,15 +21,15 @@ public class Line2D {
 	 * @param y2
 	 */
 	public Line2D(float x1, float x2, float y1, float y2){
-		src = new Point2D(x1, x2);
-		dest = new Point2D(y1, y2);
+		src = new Point(x1, x2);
+		dest = new Point(y1, y2);
 	}
 	
 	/**
 	 * 
 	 * @return
 	 */
-	public Point2D getSrc(){
+	public Point getSrc(){
 		return src;
 	}
 	
@@ -37,7 +37,7 @@ public class Line2D {
 	 * 
 	 * @return
 	 */
-	public Point2D getDest(){
+	public Point getDest(){
 		return dest;
 	}
 	
@@ -49,6 +49,11 @@ public class Line2D {
 				"(" + dest.getX() + "," + dest.getY() + ")");
 	}
 	
+	/*
+	 * (non-Javadoc)
+	 * @see com.mycompany.clock.Shape2D#draw(java.awt.Graphics)
+	 */
+	@Override
 	public void draw(Graphics g){
 		Graphics2D g2 = (Graphics2D)g;
 		//g2.setStroke(new BasicStroke(3));
@@ -57,6 +62,11 @@ public class Line2D {
 				(int)dest.getX(), (int)dest.getY());
 	}
 	
+	/*
+	 * (non-Javadoc)
+	 * @see com.mycompany.clock.Shape2D#transform(com.mycompany.clock.Transformation)
+	 */
+	@Override
 	public void transform(Transformation trans){
 		src.transform(trans);
 		dest.transform(trans);

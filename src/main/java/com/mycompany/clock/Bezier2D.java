@@ -6,9 +6,9 @@ import java.util.*;
  * @author colin
  *
  */
-public class Bezier2D {
+public class Bezier2D extends Shape2D{
 	
-	private Vector<Point2D> points;
+	private Vector<Point> points;
 	private int numberOfPoints;
 	private int segments;
 	private float interval;
@@ -18,7 +18,7 @@ public class Bezier2D {
 	 * Constructor
 	 */
 	public Bezier2D(){
-		points = new Vector<Point2D>();
+		points = new Vector<Point>();
 		numberOfPoints = 0;
 		segments = 10;
 		interval = (float)1/segments;
@@ -29,7 +29,7 @@ public class Bezier2D {
 	 * Add a point to the curve
 	 */
 	public void addPoint(float x, float y){
-		points.add(new Point2D(x, y));
+		points.add(new Point(x, y));
 		numberOfPoints++;
 	}
 	
@@ -71,12 +71,14 @@ public class Bezier2D {
 	}
 	
 	/*
-	 * Draws the curve line
+	 * (non-Javadoc)
+	 * @see com.mycompany.clock.Shape2D#draw(java.awt.Graphics)
 	 */
+	@Override
 	public void draw(Graphics g){
 		Graphics2D g2 = (Graphics2D)g;
-		float xsrc = ((Point2D)points.get(0)).getX();
-		float ysrc = ((Point2D)points.get(0)).getY();
+		float xsrc = ((Point)points.get(0)).getX();
+		float ysrc = ((Point)points.get(0)).getY();
 		
 		for(float t = 0; t <= 1.1; t+= interval){
 			float xdest = 0;
@@ -85,8 +87,8 @@ public class Bezier2D {
 			for(int i = 0; i < numberOfPoints; i++){
 				float bint = bezier(i, numberOfPoints - 1, t);
 				
-				xdest += ((Point2D)points.get(i)).getX() * bint;
-				ydest += ((Point2D)points.get(i)).getY() * bint;
+				xdest += ((Point)points.get(i)).getX() * bint;
+				ydest += ((Point)points.get(i)).getY() * bint;
 			}
 			//g2.setStroke(b);
 			g2.drawLine((int)xsrc, (int)ysrc, (int)xdest, (int)ydest);
@@ -95,9 +97,14 @@ public class Bezier2D {
 		}
 	}
 	
+	/*
+	 * (non-Javadoc)
+	 * @see com.mycompany.clock.Shape2D#transform(com.mycompany.clock.Transformation)
+	 */
+	@Override
 	public void transform(Transformation trans){
 		for(int i = 0; i < numberOfPoints; i++){
-			((Point2D)points.get(i)).transform(trans);
+			((Point)points.get(i)).transform(trans);
 		}
 	}
 

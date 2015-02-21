@@ -11,30 +11,53 @@ import java.awt.*;
  * @author colin
  *
  */
-public class Drawing2D {
+public class Drawing2D extends Shape2D{
 	
-	private List<Shape2D> shapes;
+	private List<ClockComponent> shapes;
 	
+	/**
+	 * Constructor
+	 */
 	public Drawing2D(){
-		shapes = new ArrayList<Shape2D>();
+		shapes = new ArrayList<ClockComponent>();
 	}
 	
-	public void addShape(Shape2D shape){
+	/**
+	 * Adds a shape to the drawing
+	 * 
+	 * @param shape
+	 */
+	public void addShape(ClockComponent shape){
 		shapes.add(shape);
 	}
 	
-	public void removeShape(Shape2D shape){
+	/**
+	 * Removes a shape from the drawing
+	 * 
+	 * @param shape
+	 */
+	public void removeShape(ClockComponent shape){
 		shapes.remove(shape);
 	}
 	
+	/*
+	 * (non-Javadoc)
+	 * @see com.mycompany.clock.Shape2D#draw(java.awt.Graphics)
+	 */
+	@Override
 	public void draw(Graphics g){
-		for(Shape2D shape : shapes){
+		for(ClockComponent shape : shapes){
 			shape.draw(g);
 		}
 	}
 	
+	/*
+	 * (non-Javadoc)
+	 * @see com.mycompany.clock.Shape2D#transform(com.mycompany.clock.Transformation)
+	 */
+	@Override
 	public void transform(Transformation trans){
-		for(Shape2D shape : shapes){
+		for(ClockComponent shape : shapes){
 			shape.transform(trans);
 		}
 	}
@@ -46,7 +69,7 @@ public class Drawing2D {
 	public String toString(){
 		String temp;
 		String shapes2D = "";
-		for(Shape2D shape : shapes){
+		for(ClockComponent shape : shapes){
 			shapes2D = shape.toString() + "\n" + shape.toString() + "\n";
 		}
 		temp = "Drawing2D(\n" + shapes2D + "\n" + ")endDrawing2D";

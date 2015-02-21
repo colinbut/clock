@@ -18,9 +18,9 @@ public class ClockView extends JFrame{
 	private TimeZone clockTimeZone; 
 	private Calendar c;
 	
-	Shape2D seconds = new Shape2D(250, 250);
-	Shape2D hours = new Shape2D(250, 250);
-	Shape2D minutes = new Shape2D(250, 250);
+	ClockComponent seconds = new ClockComponent(250, 250);
+	ClockComponent hours = new ClockComponent(250, 250);
+	ClockComponent minutes = new ClockComponent(250, 250);
 
 	private Thread thr;
 	
@@ -90,7 +90,7 @@ public class ClockView extends JFrame{
 	 */
 	public void drawClockFigures(){
 		//12
-		Shape2D twelve = new Shape2D(250,250);
+		ClockComponent twelve = new ClockComponent(250,250);
 		twelve.setShapeColor(Color.YELLOW);
 		twelve.addLine(238, 70, 248, 90);
 		twelve.addLine(248, 70, 238, 90);
@@ -98,21 +98,21 @@ public class ClockView extends JFrame{
 		twelve.addLine(257, 70, 257, 90);
 		drawing.addShape(twelve);
 		//3
-		Shape2D three = new Shape2D(250, 250);
+		ClockComponent three = new ClockComponent(250, 250);
 		three.setShapeColor(Color.YELLOW);
 		three.addLine(410, 250, 430, 250);
 		three.addLine(410, 240, 430, 240);
 		three.addLine(410, 260, 430, 260);
 		drawing.addShape(three);
 		//6
-		Shape2D six = new Shape2D(250, 250);
+		ClockComponent six = new ClockComponent(250, 250);
 		six.setShapeColor(Color.YELLOW);
 		six.addLine(242, 410, 242, 430);
 		six.addLine(254, 410, 251, 430);
 		six.addLine(254, 410, 257, 430);
 		drawing.addShape(six);
 		//9
-		Shape2D nine = new Shape2D(250, 250);
+		ClockComponent nine = new ClockComponent(250, 250);
 		nine.setShapeColor(Color.YELLOW);
 		nine.addLine(70, 260, 90, 260);
 		nine.addLine(70, 240, 90, 250);
@@ -127,7 +127,7 @@ public class ClockView extends JFrame{
 	public void drawClockBase(){
 		canvas.setDrawing(drawing);
 		//Outline
-		Shape2D clockOutline = new Shape2D(250, 250);
+		ClockComponent clockOutline = new ClockComponent(250, 250);
 		clockOutline.setShapeColor(Color.GREEN);
 		clockOutline.addLine(60, 60, 440, 60);
 		clockOutline.addLine(60, 60, 60, 440);
@@ -135,7 +135,7 @@ public class ClockView extends JFrame{
 		clockOutline.addLine(440, 60, 440, 440);
 		drawing.addShape(clockOutline);
 		//Base
-		Shape2D clockBase = new Shape2D(250,250);
+		ClockComponent clockBase = new ClockComponent(250,250);
 		clockBase.addLine((int)px, (int)py, (int)qx, (int)qy);
 		clockBase.addLine((int)px, (int)py, (int)rx, (int)ry);
 		clockBase.addLine((int)qx, (int)qy, (int)sx, (int)sy);
@@ -195,7 +195,7 @@ public class ClockView extends JFrame{
 	/*
 	 * Constructs an Apollo13 object shape
 	 */
-	private void triangleShape(Shape2D s){
+	private void triangleShape(ClockComponent s){
     	s.addLine(260, 130, 240, 130);
 		s.addLine(260, 130, 250, 110);
 		s.addLine(240, 130, 250, 110);
@@ -277,7 +277,7 @@ public class ClockView extends JFrame{
 	/**
 	 * 
 	 */
-	public void Tick(double d, Shape2D s){
+	public void Tick(double d, ClockComponent s){
 		
 		float dx = s.x();
 		float dy = s.y();

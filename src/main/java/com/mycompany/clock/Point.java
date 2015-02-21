@@ -8,7 +8,7 @@ package com.mycompany.clock;
  * @author Colin
  *
  */
-public class Point2D extends Matrix{
+public class Point extends Matrix{
 	
 	
 	/**
@@ -17,7 +17,7 @@ public class Point2D extends Matrix{
 	 * @param x
 	 * @param y
 	 */
-	public Point2D(float x, float y){
+	public Point(float x, float y){
 		super(3,1,1);
 		matrix[0][0] = x;
 		matrix[1][0] = y;
