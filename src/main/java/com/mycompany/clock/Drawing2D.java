@@ -1,13 +1,13 @@
 package com.mycompany.clock;
 
-/**
- * 
- */
-
 import java.util.ArrayList;
 import java.util.List;
 import java.awt.*;
 /**
+ * 
+ * Represents a 2D drawing which composes of numerous
+ * 2D shapes
+ * 
  * @author colin
  *
  */

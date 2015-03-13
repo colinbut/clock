@@ -11,6 +11,10 @@ import java.awt.Image;
 import java.awt.Toolkit;
 
 /**
+ * A class that is responsible for refreshing the screen
+ * 
+ * Makes use of Double Buffering drawing technique
+ * 
  * @author colin
  *
  */
@@ -55,7 +59,7 @@ public class ScreenRefresher implements Runnable{
 			offScreenGraphics.setColor(Color.BLACK);
 			offScreenGraphics.fillRect(0, 0, d.width, d.height);
 			offScreenGraphics.setColor(Color.WHITE);
-			clockViewPanel.myDrawing.draw(offScreenGraphics);
+			clockViewPanel.get2DDrawing().draw(offScreenGraphics);
 			
 			try{
 				if((g != null)){

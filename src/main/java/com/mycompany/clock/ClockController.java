@@ -9,17 +9,19 @@ import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
 
 /**
+ * Controller for the 2D Clock Application
+ * 
  * @author colin
  *
  */
 public class ClockController extends WindowAdapter implements KeyListener{
 
-	private ClockView view;
+	private ClockView view; //view
 	
 	/**
 	 * Constructor
 	 * 
-	 * @param view
+	 * @param view the view
 	 */
 	public ClockController(ClockView view){
 		this.view = view; 
@@ -63,7 +65,7 @@ public class ClockController extends WindowAdapter implements KeyListener{
 	 */
 	@Override
 	public void keyTyped(KeyEvent evt){
-		
+		// no Implementation defined/required
 	}
 	
 	/*
@@ -71,7 +73,7 @@ public class ClockController extends WindowAdapter implements KeyListener{
 	 * @see java.awt.event.KeyListener#keyReleased(java.awt.event.KeyEvent)
 	 */
 	public void keyReleased(KeyEvent evt){
-		
+		// no Implementation defined/required
 	}
 
 }

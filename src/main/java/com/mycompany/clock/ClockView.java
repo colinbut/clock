@@ -68,10 +68,12 @@ public class ClockView extends JFrame{
 	 * Makes the initial stuff
 	 */
 	public void initComponents(){
+		
 		drawClockBase();
 		drawClockFigures();
 		drawClockHands();
 		calculateTime();
+		
 		Transformation trans = new Transformation();
 		trans.translate(0, -40);
 		drawing.transform(trans);
@@ -202,7 +204,7 @@ public class ClockView extends JFrame{
 	}
 	
 	/*
-	 * 
+	 * Calculates the time
 	 */
 	private void calculateTime(){
 		
@@ -275,7 +277,7 @@ public class ClockView extends JFrame{
 	}
 	
 	/**
-	 * 
+	 * Moves the clock hands
 	 */
 	public void Tick(double d, ClockComponent s){
 		
@@ -315,6 +317,9 @@ public class ClockView extends JFrame{
 	 * Stops the total animation
 	 * 
 	 * This method is not used in this application
+	 * 
+	 * Currently there is not to stop the animation from the application 
+	 * apart from abruptly shutdown
 	 */
 	@Deprecated
 	public void stopAnim(){

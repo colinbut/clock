@@ -1,10 +1,11 @@
 package com.mycompany.clock;
 
-/**
- * 
- */
 
 /**
+ * A Point in 2D space
+ * 
+ * has x,y coordinates
+ * 
  * @author Colin
  *
  */
@@ -24,16 +25,18 @@ public class Point extends Matrix{
 	}
 	
 	/**
+	 * Gets the x coordinate
 	 * 
-	 * @return
+	 * @return x coordinate in float value
 	 */
 	public float getX(){
 		return getElement(0,0);
 	}
 	
 	/**
+	 * Gets the y coordinate
 	 * 
-	 * @return
+	 * @return y coordinate in float value
 	 */
 	public float getY(){
 		return getElement(1,0);

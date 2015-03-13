@@ -10,7 +10,7 @@ import javax.swing.*;
 public class ClockViewPanel extends JPanel{
 	
 	private static final long serialVersionUID = 7846676666316763109L;
-	Drawing2D myDrawing;
+	private Drawing2D myDrawing;
 	
 	private Thread thr;
 		
@@ -58,6 +58,14 @@ public class ClockViewPanel extends JPanel{
 		thr.stop();
 	}
 	
+	/**
+	 * Returns the 2D drawing that is part of this view
+	 * 
+	 * @return the 2D drawing
+	 */
+	public Drawing2D get2DDrawing(){
+		return myDrawing;
+	}
 
 
 }

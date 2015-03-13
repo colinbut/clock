@@ -4,6 +4,8 @@
 package com.mycompany.clock;
 
 /**
+ * A unit of task that performs the animation
+ * 
  * @author colin
  *
  */
@@ -19,8 +21,13 @@ public class Animation implements Runnable{
 	private int mins = 0;
 	//private int hrs = 0;
 	
-	ClockView gc = null;
+	private ClockView gc = null;
 	
+	/**
+	 * Constructor
+	 * 
+	 * @param gc the view for which the animation occurs on
+	 */
 	public Animation(ClockView gc){
 		this.gc = gc;
 	}

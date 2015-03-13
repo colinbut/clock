@@ -1,10 +1,13 @@
 package com.mycompany.clock;
 
-/**
- * 
- */
 import java.awt.*;
+
 /**
+ * A 2D Line
+ * 
+ * A line has 2 points in 2D space. Start and End with a horizontal 
+ * connection between the 2 points.
+ * 
  * @author colin
  *
  */
@@ -14,11 +17,12 @@ public class Line2D extends Shape2D{
 	private Point dest;
 	
 	/**
+	 * Constructor
 	 * 
-	 * @param x1
-	 * @param x2
-	 * @param y1
-	 * @param y2
+	 * @param x1 x coordinate of 1st Point
+	 * @param x2 x coordinate of 2nd Point
+	 * @param y1 y coordinate of 1st Point
+	 * @param y2 y coordinate of 2nd Point
 	 */
 	public Line2D(float x1, float x2, float y1, float y2){
 		src = new Point(x1, x2);
@@ -26,6 +30,7 @@ public class Line2D extends Shape2D{
 	}
 	
 	/**
+	 * Gets the start point of a line
 	 * 
 	 * @return
 	 */
@@ -34,6 +39,7 @@ public class Line2D extends Shape2D{
 	}
 	
 	/**
+	 * Gets the end point of a line
 	 * 
 	 * @return
 	 */
@@ -41,13 +47,7 @@ public class Line2D extends Shape2D{
 		return dest;
 	}
 	
-	/**
-	 * 
-	 */
-	public void printLine(){
-		System.out.println("(" + src.getX() + "," + src.getY() + ")\n" +
-				"(" + dest.getX() + "," + dest.getY() + ")");
-	}
+
 	
 	/*
 	 * (non-Javadoc)
