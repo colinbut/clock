@@ -19,7 +19,7 @@ public class Animation implements Runnable{
 	
 	private int secs = 0;
 	private int mins = 0;
-	//private int hrs = 0;
+	
 	
 	private ClockView gc = null;
 	
@@ -47,17 +47,17 @@ public class Animation implements Runnable{
 			beforeTrans = System.nanoTime();
 			
 			secs++;		
-			gc.seconds.transform(gc.localRotation(6));
+			gc.getSecondsHand().transform(gc.localRotation(6));
 			if(secs == 60){
 				secs = 0;
 				mins++;
-				gc.minutes.transform(gc.localRotation(6));
+				gc.getMinutesHand().transform(gc.localRotation(6));
 			}
 			
 			if(mins == 2){
 				//increment hr
 				mins = 0;
-				gc.hours.transform(gc.localRotation(1));
+				gc.getHoursHand().transform(gc.localRotation(1));
 			}
 			
 					

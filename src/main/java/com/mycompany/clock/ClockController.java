@@ -45,13 +45,13 @@ public class ClockController extends WindowAdapter implements KeyListener{
 		int keyCode = evt.getKeyCode();
 	    switch (keyCode) {
 	    case 37:
-	    	view.seconds.transform(view.localRotation(6));
+	    	view.getSecondsHand().transform(view.localRotation(6));
 	    	break;
 	    case 38 : // up cursor key 
-	    	view.hours.transform(view.localRotation(6));
+	    	view.getHoursHand().transform(view.localRotation(6));
 	    	break;
 	    case 39:
-	    	view.minutes.transform(view.localRotation(6));
+	    	view.getMinutesHand().transform(view.localRotation(6));
 	       
 	          break;
 	    case 40 : // down cursor key

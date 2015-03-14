@@ -7,6 +7,14 @@ import javax.swing.*;
 
 
 /**
+ * This represents the "View" of a MVC 
+ * 
+ * This consists of the application window frame
+ * 
+ * It is also where the animation occurs. Currently it only starts the animation
+ * and animates indefinitely. It has no capabilities of stopping the animation.
+ * 
+ * 
  * @author colin
  *
  */
@@ -18,15 +26,12 @@ public class ClockView extends JFrame{
 	private TimeZone clockTimeZone; 
 	private Calendar c;
 	
-	ClockComponent seconds = new ClockComponent(250, 250);
-	ClockComponent hours = new ClockComponent(250, 250);
-	ClockComponent minutes = new ClockComponent(250, 250);
-
-	private Thread thr;
+	private ClockComponent seconds;
+	private ClockComponent hours;
+	private ClockComponent minutes;
 	
 	private int secs = 0;
 
-	
 	private float localX;
 	private float localY;
 
@@ -40,8 +45,9 @@ public class ClockView extends JFrame{
 	private double sx = 400;
 	private double sy = 400;
 	
-	ClockController controller = null;
-
+	private ClockController controller;
+	private AnimationController animationController;
+	
 	
 	/**
 	 * Constructor
@@ -49,15 +55,18 @@ public class ClockView extends JFrame{
 	public ClockView(){
 		
 		controller = new ClockController(this);
-		
-		setTitle("Clock");
-		setLocation(250, 200);
-		setPreferredSize(new Dimension(500,460));
+		animationController = new AnimationController(this);
 			
 		canvas = new ClockViewPanel();
 		drawing = new Drawing2D();
+		
+		seconds = new ClockComponent(250, 250);
+		hours = new ClockComponent(250, 250);
+		minutes = new ClockComponent(250, 250);
+		
 		clockTimeZone = TimeZone.getDefault();//get the timezone
 		c = Calendar.getInstance(clockTimeZone);
+		
 		initComponents();
 		
 		addKeyListener(controller);	
@@ -68,6 +77,10 @@ public class ClockView extends JFrame{
 	 * Makes the initial stuff
 	 */
 	public void initComponents(){
+		
+		setTitle("Clock");
+		setLocation(250, 200);
+		setPreferredSize(new Dimension(500,460));
 		
 		drawClockBase();
 		drawClockFigures();
@@ -90,7 +103,7 @@ public class ClockView extends JFrame{
 	/**
 	 * The numbers of the Numerals
 	 */
-	public void drawClockFigures(){
+	private void drawClockFigures(){
 		//12
 		ClockComponent twelve = new ClockComponent(250,250);
 		twelve.setShapeColor(Color.YELLOW);
@@ -126,7 +139,7 @@ public class ClockView extends JFrame{
 	/**
 	 * The outline + the Square Swirl thats inside it
 	 */
-	public void drawClockBase(){
+	private void drawClockBase(){
 		canvas.setDrawing(drawing);
 		//Outline
 		ClockComponent clockOutline = new ClockComponent(250, 250);
@@ -172,7 +185,7 @@ public class ClockView extends JFrame{
 	 * Draws the clock hands
 	 * - Hour, Minute & Seconds
 	 */
-	public void drawClockHands(){
+	private void drawClockHands(){
 		hours.addCircle(250, 250, 30, 30, 15);
 		hours.addCurve(makeHourCurves());
 		hours.addLine(260, 180, 240, 180);
@@ -223,6 +236,7 @@ public class ClockView extends JFrame{
 	}
 	
 	/*
+	 * Constructs the hand curves
 	 * 
 	 * @return curve
 	 */
@@ -239,7 +253,7 @@ public class ClockView extends JFrame{
 	}
 	
 	/*
-	 * 
+	 * Constructs the hour curves
 	 */
 	private Bezier2D makeHourCurves(){
 		Bezier2D curve = new Bezier2D();
@@ -276,10 +290,10 @@ public class ClockView extends JFrame{
 		return transform1;
 	}
 	
-	/**
+	/*
 	 * Moves the clock hands
 	 */
-	public void Tick(double d, ClockComponent s){
+	private void Tick(double d, ClockComponent s){
 		
 		float dx = s.x();
 		float dy = s.y();
@@ -306,27 +320,38 @@ public class ClockView extends JFrame{
 	 */
 	public void startAnim(){
 		System.out.println("Starting");
-		//stop = false;
-		thr = new Thread(new Animation(this));
-		thr.start(); //starts the thread
-		//and automatically calls run()
+		animationController.animate();
 		canvas.startAnim();
 	}
 	
 	/**
-	 * Stops the total animation
+	 * Gets the seconds hand drawing shape
 	 * 
-	 * This method is not used in this application
-	 * 
-	 * Currently there is not to stop the animation from the application 
-	 * apart from abruptly shutdown
+	 * @return seconds hand clock component
 	 */
-	@Deprecated
-	public void stopAnim(){
-		System.out.println("Stopping");
-		thr.stop();//stops this thread
-		canvas.stopAnim();
+	public ClockComponent getSecondsHand(){
+		return seconds;
 	}
+	
+	/**
+	 * Gets the minutes hand drawing shape
+	 * 
+	 * @return minutes hand clock component
+	 */
+	public ClockComponent getMinutesHand(){
+		return minutes;
+	}
+	
+	/**
+	 * Gets the hours hand drawing shape
+	 * 
+	 * @return hours hand clock component
+	 */
+	public ClockComponent getHoursHand(){
+		return hours;
+	}
+	
+
 
 	
 }
