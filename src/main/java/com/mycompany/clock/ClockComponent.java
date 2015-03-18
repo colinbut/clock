@@ -9,6 +9,12 @@ import java.awt.Graphics;
 import java.util.ArrayList;
 import java.util.List;
 
+import com.mycompany.clock.graphics.Bezier2D;
+import com.mycompany.clock.graphics.Circle2D;
+import com.mycompany.clock.graphics.Line2D;
+import com.mycompany.clock.graphics.Point;
+import com.mycompany.clock.graphics.Transformation;
+
 
 /**
  * @author colin

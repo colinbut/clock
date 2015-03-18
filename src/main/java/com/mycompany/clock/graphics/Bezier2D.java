@@ -1,4 +1,4 @@
-package com.mycompany.clock;
+package com.mycompany.clock.graphics;
 
 import java.awt.*;
 import java.util.*;

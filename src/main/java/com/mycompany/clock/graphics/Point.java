@@ -1,4 +1,5 @@
-package com.mycompany.clock;
+package com.mycompany.clock.graphics;
+
 
 
 /**

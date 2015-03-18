@@ -3,6 +3,9 @@ package com.mycompany.clock;
 import java.util.ArrayList;
 import java.util.List;
 import java.awt.*;
+
+import com.mycompany.clock.graphics.Shape2D;
+import com.mycompany.clock.graphics.Transformation;
 /**
  * 
  * Represents a 2D drawing which composes of numerous
@@ -11,14 +14,14 @@ import java.awt.*;
  * @author colin
  *
  */
-public class Drawing2D extends Shape2D{
+public class ClockDrawing2D extends Shape2D{
 	
 	private List<ClockComponent> shapes;
 	
 	/**
 	 * Constructor
 	 */
-	public Drawing2D(){
+	public ClockDrawing2D(){
 		shapes = new ArrayList<ClockComponent>();
 	}
 	

@@ -3,7 +3,11 @@ package com.mycompany.clock;
 import java.awt.*;
 import java.util.Calendar;
 import java.util.TimeZone;
+
 import javax.swing.*;
+
+import com.mycompany.clock.graphics.Bezier2D;
+import com.mycompany.clock.graphics.Transformation;
 
 
 /**
@@ -22,7 +26,7 @@ public class ClockView extends JFrame{
 	
 	private static final long serialVersionUID = 4931306666298591588L;
 	private ClockViewPanel canvas;
-	private Drawing2D drawing;
+	private ClockDrawing2D drawing;
 	private TimeZone clockTimeZone; 
 	private Calendar c;
 	
@@ -58,7 +62,7 @@ public class ClockView extends JFrame{
 		animationController = new AnimationController(this);
 			
 		canvas = new ClockViewPanel();
-		drawing = new Drawing2D();
+		drawing = new ClockDrawing2D();
 		
 		seconds = new ClockComponent(250, 250);
 		hours = new ClockComponent(250, 250);

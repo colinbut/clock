@@ -5,8 +5,12 @@ import java.awt.event.*;
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.TimeZone;
+
 import javax.swing.event.*;
 import javax.swing.*;
+
+import com.mycompany.clock.graphics.Bezier2D;
+import com.mycompany.clock.graphics.Transformation;
 
 /**
  * MultiThread
@@ -22,7 +26,7 @@ import javax.swing.*;
 public class Gapplet extends JApplet implements Runnable{
 	
 	private ClockViewPanel canvas;
-	private Drawing2D drawing;
+	private ClockDrawing2D drawing;
 	private TimeZone clockTimeZone; 
 	private Calendar c;
 	
@@ -63,7 +67,7 @@ public class Gapplet extends JApplet implements Runnable{
 	 */
 	public void init(){
 		canvas = new ClockViewPanel();
-		drawing = new Drawing2D();
+		drawing = new ClockDrawing2D();
 		clockTimeZone = TimeZone.getDefault();//get the timezone
 		c = Calendar.getInstance(clockTimeZone);
 		getContentPane().add(canvas);
