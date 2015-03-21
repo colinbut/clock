@@ -12,7 +12,7 @@ public class ClockViewPanel extends JPanel{
 	private static final long serialVersionUID = 7846676666316763109L;
 	private ClockDrawing2D myDrawing;
 	
-	private Thread thr;
+	private ScreenRefreshController screenRefreshController;
 		
 	/**
 	 * Constructor
@@ -20,7 +20,9 @@ public class ClockViewPanel extends JPanel{
 	public ClockViewPanel(){
 		myDrawing = new ClockDrawing2D();
 		setBackground(Color.BLACK);
-		thr = new Thread(new ScreenRefresher(this));
+		
+		screenRefreshController = new ScreenRefreshController();
+		
 	}
 	
 	/**
@@ -45,17 +47,7 @@ public class ClockViewPanel extends JPanel{
 	 * Starts the thread that does the rendering (Erasing + Drawing)
 	 */
 	public void startAnim(){
-		thr.start();
-	}
-	
-	/**
-	 * Stops this rendering thread
-	 * 
-	 * This method is not used in this application
-	 */
-	@Deprecated
-	public void stopAnim(){
-		thr.stop();
+		screenRefreshController.refreshScreen(this);
 	}
 	
 	/**

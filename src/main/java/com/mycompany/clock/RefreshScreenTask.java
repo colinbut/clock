@@ -10,6 +10,8 @@ import java.awt.Graphics2D;
 import java.awt.Image;
 import java.awt.Toolkit;
 
+import javax.swing.JComponent;
+
 /**
  * A class that is responsible for refreshing the screen
  * 
@@ -18,7 +20,7 @@ import java.awt.Toolkit;
  * @author colin
  *
  */
-public class ScreenRefresher implements Runnable{
+public class RefreshScreenTask implements Runnable{
 
 	//Uses for Double Buffering
 	private Image offScreenBuffer = null;
@@ -26,14 +28,14 @@ public class ScreenRefresher implements Runnable{
 	private Dimension d, oldD;
 	private boolean stop = false;
 	
-	private ClockViewPanel clockViewPanel = null;
+	private JComponent clockViewPanel = null;
 	
 	/**
 	 * Constructor
 	 * 
 	 * @param cvp
 	 */
-	public ScreenRefresher(ClockViewPanel cvp){
+	public RefreshScreenTask(JComponent cvp){
 		clockViewPanel = cvp;
 	}
 	
@@ -59,7 +61,7 @@ public class ScreenRefresher implements Runnable{
 			offScreenGraphics.setColor(Color.BLACK);
 			offScreenGraphics.fillRect(0, 0, d.width, d.height);
 			offScreenGraphics.setColor(Color.WHITE);
-			clockViewPanel.get2DDrawing().draw(offScreenGraphics);
+			((ClockViewPanel) clockViewPanel).get2DDrawing().draw(offScreenGraphics);
 			
 			try{
 				if((g != null)){
