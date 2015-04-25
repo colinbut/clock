@@ -4,13 +4,14 @@ package com.mycompany.clock.graphics;
  * 
  */
 import java.awt.*;
+
 /**
  * @author colin
  *
  */
 public class Circle2D extends Shape2D{
 	
-	private Point point; //x pos
+	private Point point; // x,y coord
 	private int width;
 	private int height;
 	private int offset;

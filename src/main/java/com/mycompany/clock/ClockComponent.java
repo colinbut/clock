@@ -22,7 +22,7 @@ import com.mycompany.clock.graphics.Transformation;
  */
 public class ClockComponent {
 	
-	//Lists of shapes
+	// lists of shapes
 	private List<Line2D> lines;
 	private List<Circle2D> circles;
 	private List<Bezier2D> curves;

@@ -1,6 +1,8 @@
 package com.mycompany.clock;
 
 /**
+ * Clock Application
+ * 
  * @author colin
  *
  */
@@ -14,7 +16,9 @@ public class Clock {
 	public static void main(String[] args) {
 		
 		ClockView start = new ClockView();
-		start.startAnim();//Starts the animation
+		
+		// starts the animation
+		start.startAnim();
 	}
 
 }

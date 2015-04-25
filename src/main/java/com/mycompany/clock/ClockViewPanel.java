@@ -3,7 +3,10 @@ package com.mycompany.clock;
 import java.awt.*;
 
 import javax.swing.*;
+
 /**
+ * View for the clock display 
+ * 
  * @author colin
  *
  */

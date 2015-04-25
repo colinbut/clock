@@ -39,7 +39,7 @@ public class ClockView extends JFrame{
 	private float localX;
 	private float localY;
 
-    //swirl
+    // swirl
 	private double px = 100;
 	private double py = 100;
 	private double qx = 400;
@@ -104,7 +104,7 @@ public class ClockView extends JFrame{
 		
 	}
 	
-	/**
+	/*
 	 * The numbers of the Numerals
 	 */
 	private void drawClockFigures(){
@@ -140,7 +140,7 @@ public class ClockView extends JFrame{
 		
 	}
 	
-	/**
+	/*
 	 * The outline + the Square Swirl thats inside it
 	 */
 	private void drawClockBase(){
@@ -185,7 +185,7 @@ public class ClockView extends JFrame{
 		
 	}
 	
-	/**
+	/*
 	 * Draws the clock hands
 	 * - Hour, Minute & Seconds
 	 */

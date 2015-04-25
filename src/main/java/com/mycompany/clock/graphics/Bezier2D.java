@@ -12,7 +12,9 @@ public class Bezier2D extends Shape2D{
 	private int numberOfPoints;
 	private int segments;
 	private float interval;
-	private BasicStroke b;
+	
+	@SuppressWarnings("unused")
+	private BasicStroke basicStroke;
 	
 	/**
 	 * Constructor
@@ -22,7 +24,7 @@ public class Bezier2D extends Shape2D{
 		numberOfPoints = 0;
 		segments = 10;
 		interval = (float)1/segments;
-		b = new BasicStroke(3);
+		basicStroke = new BasicStroke(3);
 	}
 	
 	/**

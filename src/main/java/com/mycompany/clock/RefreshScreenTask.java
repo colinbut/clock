@@ -22,7 +22,7 @@ import javax.swing.JComponent;
  */
 public class RefreshScreenTask implements Runnable{
 
-	//Uses for Double Buffering
+	// uses for Double Buffering
 	private Image offScreenBuffer = null;
 	private Graphics offScreenGraphics;
 	private Dimension d, oldD;
