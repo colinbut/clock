@@ -1,7 +1,7 @@
 /**
  * 
  */
-package com.mycompany.clock;
+package com.mycompany.clock.animation;
 
 import java.awt.Color;
 import java.awt.Dimension;
@@ -11,6 +11,8 @@ import java.awt.Image;
 import java.awt.Toolkit;
 
 import javax.swing.JComponent;
+
+import com.mycompany.clock.view.ClockViewPanel;
 
 /**
  * A class that is responsible for refreshing the screen

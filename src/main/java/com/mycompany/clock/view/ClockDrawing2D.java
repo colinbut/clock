@@ -1,4 +1,4 @@
-package com.mycompany.clock;
+package com.mycompany.clock.view;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -16,13 +16,13 @@ import com.mycompany.clock.graphics.Transformation;
  */
 public class ClockDrawing2D extends Shape2D{
 	
-	private List<ClockComponent> shapes;
+	private List<ClockHand> shapes;
 	
 	/**
 	 * Constructor
 	 */
 	public ClockDrawing2D(){
-		shapes = new ArrayList<ClockComponent>();
+		shapes = new ArrayList<ClockHand>();
 	}
 	
 	/**
@@ -30,7 +30,7 @@ public class ClockDrawing2D extends Shape2D{
 	 * 
 	 * @param shape
 	 */
-	public void addShape(ClockComponent shape){
+	public void addShape(ClockHand shape){
 		shapes.add(shape);
 	}
 	
@@ -39,7 +39,7 @@ public class ClockDrawing2D extends Shape2D{
 	 * 
 	 * @param shape
 	 */
-	public void removeShape(ClockComponent shape){
+	public void removeShape(ClockHand shape){
 		shapes.remove(shape);
 	}
 	
@@ -49,7 +49,7 @@ public class ClockDrawing2D extends Shape2D{
 	 */
 	@Override
 	public void draw(Graphics g){
-		for(ClockComponent shape : shapes){
+		for(ClockHand shape : shapes){
 			shape.draw(g);
 		}
 	}
@@ -60,7 +60,7 @@ public class ClockDrawing2D extends Shape2D{
 	 */
 	@Override
 	public void transform(Transformation trans){
-		for(ClockComponent shape : shapes){
+		for(ClockHand shape : shapes){
 			shape.transform(trans);
 		}
 	}
@@ -72,7 +72,7 @@ public class ClockDrawing2D extends Shape2D{
 	public String toString(){
 		String temp;
 		String shapes2D = "";
-		for(ClockComponent shape : shapes){
+		for(ClockHand shape : shapes){
 			shapes2D = shape.toString() + "\n" + shape.toString() + "\n";
 		}
 		temp = "Drawing2D(\n" + shapes2D + "\n" + ")endDrawing2D";

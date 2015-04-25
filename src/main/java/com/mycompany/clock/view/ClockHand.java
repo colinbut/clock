@@ -1,4 +1,4 @@
-package com.mycompany.clock;
+package com.mycompany.clock.view;
 
 /**
  * 
@@ -20,7 +20,7 @@ import com.mycompany.clock.graphics.Transformation;
  * @author colin
  *
  */
-public class ClockComponent {
+public class ClockHand {
 	
 	// lists of shapes
 	private List<Line2D> lines;
@@ -35,7 +35,7 @@ public class ClockComponent {
 	 * @param x
 	 * @param y
 	 */
-	public ClockComponent(float x, float y){
+	public ClockHand(float x, float y){
 		lines = new ArrayList<Line2D>();
 		circles = new ArrayList<Circle2D>();
 		curves = new ArrayList<Bezier2D>();

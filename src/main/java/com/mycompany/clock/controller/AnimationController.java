@@ -1,10 +1,13 @@
 /**
  * 
  */
-package com.mycompany.clock;
+package com.mycompany.clock.controller;
 
 import java.util.concurrent.Executor;
 import java.util.concurrent.Executors;
+
+import com.mycompany.clock.animation.Animation;
+import com.mycompany.clock.view.ClockView;
 
 /**
  * A controller that is responsible for the animation's 

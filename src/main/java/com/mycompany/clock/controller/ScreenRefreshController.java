@@ -1,12 +1,14 @@
 /**
  * 
  */
-package com.mycompany.clock;
+package com.mycompany.clock.controller;
 
 import java.util.concurrent.Executor;
 import java.util.concurrent.Executors;
 
 import javax.swing.JComponent;
+
+import com.mycompany.clock.animation.RefreshScreenTask;
 
 /**
  * Controller for screen refresh

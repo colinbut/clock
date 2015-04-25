@@ -1,4 +1,4 @@
-package com.mycompany.clock;
+package com.mycompany.clock.view;
 
 import java.awt.*;
 import java.util.Calendar;
@@ -6,6 +6,8 @@ import java.util.TimeZone;
 
 import javax.swing.*;
 
+import com.mycompany.clock.controller.AnimationController;
+import com.mycompany.clock.controller.ClockController;
 import com.mycompany.clock.graphics.Bezier2D;
 import com.mycompany.clock.graphics.Transformation;
 
@@ -30,9 +32,9 @@ public class ClockView extends JFrame{
 	private TimeZone clockTimeZone; 
 	private Calendar c;
 	
-	private ClockComponent seconds;
-	private ClockComponent hours;
-	private ClockComponent minutes;
+	private ClockHand seconds;
+	private ClockHand hours;
+	private ClockHand minutes;
 	
 	private int secs = 0;
 
@@ -64,9 +66,9 @@ public class ClockView extends JFrame{
 		canvas = new ClockViewPanel();
 		drawing = new ClockDrawing2D();
 		
-		seconds = new ClockComponent(250, 250);
-		hours = new ClockComponent(250, 250);
-		minutes = new ClockComponent(250, 250);
+		seconds = new ClockHand(250, 250);
+		hours = new ClockHand(250, 250);
+		minutes = new ClockHand(250, 250);
 		
 		clockTimeZone = TimeZone.getDefault();//get the timezone
 		c = Calendar.getInstance(clockTimeZone);
@@ -109,7 +111,7 @@ public class ClockView extends JFrame{
 	 */
 	private void drawClockFigures(){
 		//12
-		ClockComponent twelve = new ClockComponent(250,250);
+		ClockHand twelve = new ClockHand(250,250);
 		twelve.setShapeColor(Color.YELLOW);
 		twelve.addLine(238, 70, 248, 90);
 		twelve.addLine(248, 70, 238, 90);
@@ -117,21 +119,21 @@ public class ClockView extends JFrame{
 		twelve.addLine(257, 70, 257, 90);
 		drawing.addShape(twelve);
 		//3
-		ClockComponent three = new ClockComponent(250, 250);
+		ClockHand three = new ClockHand(250, 250);
 		three.setShapeColor(Color.YELLOW);
 		three.addLine(410, 250, 430, 250);
 		three.addLine(410, 240, 430, 240);
 		three.addLine(410, 260, 430, 260);
 		drawing.addShape(three);
 		//6
-		ClockComponent six = new ClockComponent(250, 250);
+		ClockHand six = new ClockHand(250, 250);
 		six.setShapeColor(Color.YELLOW);
 		six.addLine(242, 410, 242, 430);
 		six.addLine(254, 410, 251, 430);
 		six.addLine(254, 410, 257, 430);
 		drawing.addShape(six);
 		//9
-		ClockComponent nine = new ClockComponent(250, 250);
+		ClockHand nine = new ClockHand(250, 250);
 		nine.setShapeColor(Color.YELLOW);
 		nine.addLine(70, 260, 90, 260);
 		nine.addLine(70, 240, 90, 250);
@@ -146,7 +148,7 @@ public class ClockView extends JFrame{
 	private void drawClockBase(){
 		canvas.setDrawing(drawing);
 		//Outline
-		ClockComponent clockOutline = new ClockComponent(250, 250);
+		ClockHand clockOutline = new ClockHand(250, 250);
 		clockOutline.setShapeColor(Color.GREEN);
 		clockOutline.addLine(60, 60, 440, 60);
 		clockOutline.addLine(60, 60, 60, 440);
@@ -154,7 +156,7 @@ public class ClockView extends JFrame{
 		clockOutline.addLine(440, 60, 440, 440);
 		drawing.addShape(clockOutline);
 		//Base
-		ClockComponent clockBase = new ClockComponent(250,250);
+		ClockHand clockBase = new ClockHand(250,250);
 		clockBase.addLine((int)px, (int)py, (int)qx, (int)qy);
 		clockBase.addLine((int)px, (int)py, (int)rx, (int)ry);
 		clockBase.addLine((int)qx, (int)qy, (int)sx, (int)sy);
@@ -214,7 +216,7 @@ public class ClockView extends JFrame{
 	/*
 	 * Constructs an Apollo13 object shape
 	 */
-	private void triangleShape(ClockComponent s){
+	private void triangleShape(ClockHand s){
     	s.addLine(260, 130, 240, 130);
 		s.addLine(260, 130, 250, 110);
 		s.addLine(240, 130, 250, 110);
@@ -274,7 +276,7 @@ public class ClockView extends JFrame{
 	/**
 	 * Performs the localRotation
 	 */
-	 Transformation localRotation(int degrees){
+	 public Transformation localRotation(int degrees){
 		float dx = localX;
 		float dy = localY;
 		Transformation transform1 = new Transformation();
@@ -297,7 +299,7 @@ public class ClockView extends JFrame{
 	/*
 	 * Moves the clock hands
 	 */
-	private void Tick(double d, ClockComponent s){
+	private void Tick(double d, ClockHand s){
 		
 		float dx = s.x();
 		float dy = s.y();
@@ -333,7 +335,7 @@ public class ClockView extends JFrame{
 	 * 
 	 * @return seconds hand clock component
 	 */
-	public ClockComponent getSecondsHand(){
+	public ClockHand getSecondsHand(){
 		return seconds;
 	}
 	
@@ -342,7 +344,7 @@ public class ClockView extends JFrame{
 	 * 
 	 * @return minutes hand clock component
 	 */
-	public ClockComponent getMinutesHand(){
+	public ClockHand getMinutesHand(){
 		return minutes;
 	}
 	
@@ -351,7 +353,7 @@ public class ClockView extends JFrame{
 	 * 
 	 * @return hours hand clock component
 	 */
-	public ClockComponent getHoursHand(){
+	public ClockHand getHoursHand(){
 		return hours;
 	}
 	

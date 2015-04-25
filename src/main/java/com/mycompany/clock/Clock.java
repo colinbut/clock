@@ -1,5 +1,7 @@
 package com.mycompany.clock;
 
+import com.mycompany.clock.view.ClockView;
+
 /**
  * Clock Application
  * 

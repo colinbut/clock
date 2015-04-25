@@ -1,7 +1,9 @@
 /**
  * 
  */
-package com.mycompany.clock;
+package com.mycompany.clock.animation;
+
+import com.mycompany.clock.view.ClockView;
 
 /**
  * A unit of task that performs the animation
@@ -21,7 +23,7 @@ public class Animation implements Runnable{
 	private int mins = 0;
 	
 	
-	private ClockView gc = null;
+	private ClockView clockView = null;
 	
 	/**
 	 * Constructor
@@ -29,7 +31,7 @@ public class Animation implements Runnable{
 	 * @param gc the view for which the animation occurs on
 	 */
 	public Animation(ClockView gc){
-		this.gc = gc;
+		this.clockView = gc;
 	}
 	
 	/*
@@ -47,17 +49,17 @@ public class Animation implements Runnable{
 			beforeTrans = System.nanoTime();
 			
 			secs++;		
-			gc.getSecondsHand().transform(gc.localRotation(6));
+			clockView.getSecondsHand().transform(clockView.localRotation(6));
 			if(secs == 60){
 				secs = 0;
 				mins++;
-				gc.getMinutesHand().transform(gc.localRotation(6));
+				clockView.getMinutesHand().transform(clockView.localRotation(6));
 			}
 			
 			if(mins == 2){
 				//increment hr
 				mins = 0;
-				gc.getHoursHand().transform(gc.localRotation(1));
+				clockView.getHoursHand().transform(clockView.localRotation(1));
 			}
 			
 					

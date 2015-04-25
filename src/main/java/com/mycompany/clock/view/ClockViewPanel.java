@@ -1,8 +1,10 @@
-package com.mycompany.clock;
+package com.mycompany.clock.view;
 
 import java.awt.*;
 
 import javax.swing.*;
+
+import com.mycompany.clock.controller.ScreenRefreshController;
 
 /**
  * View for the clock display 

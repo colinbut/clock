@@ -1,12 +1,14 @@
 /**
  * 
  */
-package com.mycompany.clock;
+package com.mycompany.clock.controller;
 
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
 import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
+
+import com.mycompany.clock.view.ClockView;
 
 /**
  * Controller for the 2D Clock Application
