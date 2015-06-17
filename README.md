@@ -5,3 +5,6 @@ This swirling clock was built using 'raw' graphics in Java. i.e. Java's 2D Graph
 built from scratch at a very low level.
 
 This was a very old University mini project.
+
+![Image of Clock]
+(https://raw.githubusercontent.com/colinbut/clock/master/src/main/resources/Clock.png)
