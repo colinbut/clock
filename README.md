@@ -6,5 +6,4 @@ built from scratch at a very low level.
 
 This was a very old University mini project.
 
-![Image of Clock]
-(https://raw.githubusercontent.com/colinbut/clock/master/src/main/resources/Clock.png)
+<img src="https://raw.githubusercontent.com/colinbut/clock/master/src/main/resources/Clock.png" alt="clock" width=350px height=350px />
