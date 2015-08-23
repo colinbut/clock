@@ -1,9 +1,9 @@
-package com.mycompany.clock.graphics;
-
-
-/**
- * 
+/*
+ * |-------------------------------------------------
+ * | Copyright © 2008 Colin But. All rights reserved. 
+ * |-------------------------------------------------
  */
+package com.mycompany.clock.graphics;
 
 /**
  * @author colin
@@ -48,7 +48,6 @@ public class Transformation extends Matrix{
 	 * @param yscale
 	 */
 	public void scale(float xscale, float yscale){
-		//TODO: not yet implemented
-		
+		throw new UnsupportedOperationException("Not yet implemented");
 	}
 }

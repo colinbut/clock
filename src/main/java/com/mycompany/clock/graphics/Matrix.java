@@ -1,8 +1,9 @@
-package com.mycompany.clock.graphics;
-
-/**
- * 
+/*
+ * |-------------------------------------------------
+ * | Copyright © 2008 Colin But. All rights reserved. 
+ * |-------------------------------------------------
  */
+package com.mycompany.clock.graphics;
 
 /**
  * @author colin

@@ -1,3 +1,8 @@
+/*
+ * |-------------------------------------------------
+ * | Copyright © 2008 Colin But. All rights reserved. 
+ * |-------------------------------------------------
+ */
 package com.mycompany.clock.graphics;
 
 import java.awt.*;
@@ -46,9 +51,7 @@ public class Line2D extends Shape2D{
 	public Point getDest(){
 		return dest;
 	}
-	
 
-	
 	/*
 	 * (non-Javadoc)
 	 * @see com.mycompany.clock.Shape2D#draw(java.awt.Graphics)
@@ -71,9 +74,7 @@ public class Line2D extends Shape2D{
 		src.transform(trans);
 		dest.transform(trans);
 	}
-	
-	
-	
+		
 	/*
 	 * (non-Javadoc)
 	 * @see java.lang.Object#toString()

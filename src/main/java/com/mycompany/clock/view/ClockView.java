@@ -1,3 +1,8 @@
+/*
+ * |-------------------------------------------------
+ * | Copyright © 2008 Colin But. All rights reserved. 
+ * |-------------------------------------------------
+ */
 package com.mycompany.clock.view;
 
 import java.awt.*;
@@ -356,8 +361,5 @@ public class ClockView extends JFrame{
 	public ClockHand getHoursHand(){
 		return hours;
 	}
-	
-
-
 	
 }

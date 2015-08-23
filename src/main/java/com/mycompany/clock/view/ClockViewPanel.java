@@ -1,3 +1,8 @@
+/*
+ * |-------------------------------------------------
+ * | Copyright © 2008 Colin But. All rights reserved. 
+ * |-------------------------------------------------
+ */
 package com.mycompany.clock.view;
 
 import java.awt.*;
@@ -43,6 +48,7 @@ public class ClockViewPanel extends JPanel{
 	 * (non-Javadoc)
 	 * @see javax.swing.JComponent#paintComponent(java.awt.Graphics)
 	 */
+	@Override
 	public void paintComponent(Graphics g){
 		super.paintComponent(g);
 		myDrawing.draw(g);

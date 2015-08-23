@@ -1,8 +1,9 @@
-package com.mycompany.clock.view;
-
-/**
- * 
+/*
+ * |-------------------------------------------------
+ * | Copyright © 2008 Colin But. All rights reserved. 
+ * |-------------------------------------------------
  */
+package com.mycompany.clock.view;
 
 import java.awt.Color;
 import java.awt.Graphics;
@@ -15,8 +16,9 @@ import com.mycompany.clock.graphics.Line2D;
 import com.mycompany.clock.graphics.Point;
 import com.mycompany.clock.graphics.Transformation;
 
-
 /**
+ * Class representing a hand of a clock
+ * 
  * @author colin
  *
  */
