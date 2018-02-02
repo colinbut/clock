@@ -1,4 +1,7 @@
 # Clock
+
+[![Build Status](https://travis-ci.org/colinbut/clock.svg?branch=master)](https://travis-ci.org/colinbut/clock)
+
 A swirling 2D clock
 
 This swirling clock was built using 'raw' graphics in Java. i.e. Java's 2D Graphics API was not used. 2D facilities were custom
